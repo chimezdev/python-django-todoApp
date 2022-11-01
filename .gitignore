@@ -1,0 +1,27 @@
+# created by virtualenv automatically
+virtualenv lib
+/Lib
+/Scripts
+# Python ##
+## Byte-compiled / optimized / DLL files
+/orders/__pycache__
+*.py[cod]
+*$py.class
+
+## Django stuff:
+*.log
+local_settings.py
+/orders/db.sqlite3
+db.sqlite3-journal
+
+### Scrapy stuff:
+.scrapy
+
+### Environments
+/orders/orders/.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/

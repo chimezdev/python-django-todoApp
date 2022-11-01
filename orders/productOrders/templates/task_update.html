@@ -1,0 +1,12 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<h3>Update Task</h3>
+
+<form method="POST" action="">
+    {% csrf_token %}
+
+    {{form}}
+    <input class="btn btn-info" type="submit" name="Update Task">
+</form>
+

@@ -1,0 +1,33 @@
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+
+    <body>
+        <div class="center-column">
+            <form method="POST" action="/"> <!--action="/" means send whatever was submited back to home func which is 'index' func in views-->
+                {% csrf_token %} 
+                {{form.title}} <!-- imports the form variable fro views.py-->
+                <input class="btn btn-info" type="submit" name="Create Task">
+            </form>
+
+            <div class="todo-list">
+            {% for task in tasks %}
+                <div class="item-row">       <!-- each task should be have its own div and in a paragraph tag-->
+                    <a class="btn btn-sm btn-info" href="{% url 'task_update' task.id %}">Update</a>
+                    <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
+                    
+                    {% if task.complete == True %} <!--complete refs the 'complete' attr in our Task model-->
+                        <strike> {{task}} </strike>     <!--using strike tag-->
+                        {% else %}      <!--don't strike through-->
+                        <span>{{task}}</span>
+                    {% endif %}
+
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
